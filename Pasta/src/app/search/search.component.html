@@ -1,0 +1,22 @@
+<div style="display: flex;">
+    
+    <router-outlet ></router-outlet>
+    <div class="container" style="margin-left: 100px;">
+    
+        <div class="input-group">
+            <input type="text" #prodotti>
+            <button (click)="cerca(prodotti)">Search</button>
+            <p></p>
+        </div>
+        <div *ngIf="ris && ris.length > 0">
+         <div *ngFor="let product of ris " >
+            <a routerLink="/pasta/{{product._id}}" >{{product.product_name}}</a>
+            <p>{{product.nutriments.carbohydrates}}</p>
+            <img src="{{product.image_front_url}}">
+            
+         
+    
+         </div>
+        </div>
+
+</div>
