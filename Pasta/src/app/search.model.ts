@@ -1,4 +1,4 @@
-export interface Welcome10 {
+export interface SearchResult {
     count:      number;
     page:       string;
     page_count: number;

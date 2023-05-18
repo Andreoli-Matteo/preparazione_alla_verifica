@@ -1,7 +1,7 @@
 import { Component, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { PastaService } from '../service/service.module';
-import { Welcome10, Product } from '../app.model';
+import { SearchResult, Product } from '../search.model';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +13,7 @@ import { Welcome10, Product } from '../app.model';
 })
 export class SearchComponent {
   prodotto !:string;
-  obsProd!:Observable<Welcome10>;
+  obsProd!:Observable<SearchResult>;
   ris:Product[] = [];
 
   constructor(public pasta:PastaService){
@@ -22,7 +22,7 @@ export class SearchComponent {
     
     this.prodotto=prodotti.value;
     this.obsProd = this.pasta.SearchProd(this.prodotto);
-    this.obsProd.subscribe((data : Welcome10)=>{this.ris=data.products;console.log(this.ris)})
+    this.obsProd.subscribe((data : SearchResult)=>{this.ris=data.products;console.log(this.ris)})
   }
  
 }

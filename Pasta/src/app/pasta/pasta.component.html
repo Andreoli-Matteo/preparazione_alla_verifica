@@ -1,12 +1,6 @@
-<div *ngIf="ris && ris.length > 0">
-    <div *ngFor="let product of ris " >
-       <p>{{product.product_name}}</p>
-       <p>{{product.nutriments.carbohydrates}}</p>
-       <p>"{{product.categories}}"</p>
-       <a routerLink="/search" >black</a>
-       <router-outlet ></router-outlet>
-
-    </div>
-   </div>
-
-
+<div *ngIf="ris">
+   <p>{{ris.product_name}}</p>
+   <p>{{ris.nutriments.carbohydrates}}</p>
+   <p>"{{ris.categories}}"</p>
+   <a routerLink="/search">black</a>
+</div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import { Welcome10 } from '../app.model';
+import { SearchResult } from '../search.model';
+import { Product_Api } from '../product.model';
 
 
 @Injectable({
@@ -10,15 +11,15 @@ export class PastaService {
 
   constructor(private http:HttpClient) { }
 
-  SearchProd(query:string){
+  SearchProd(query:string | null){
     const url = `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${query}&page_size=2&json=true`
-    let obsprod = this.http.get<Welcome10>(url);
+    let obsprod = this.http.get<SearchResult>(url);
     return obsprod;
   }
 
-  getProd(id:string){
-    const url= `https://world.openfoodfacts.org/product/${id}`;
-    return this.http.get(url)
+  getProd(id:string |null){
+    const url= `https://world.openfoodfacts.org/api/v0/product/${id}` ; console.log(url)
+    return this.http.get<Product_Api>(url)
   }
 
 }
